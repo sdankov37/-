@@ -1,0 +1,42 @@
+#include <iostream> // Библиотека ввода-вывода
+#include <cmath> // math - библиотека
+using namespace std;
+
+int main() {
+    // [0,2]  f(x) = x**2 - 2
+    double A = 0;//Начало интервала
+    double B = 2;//Конец интервала
+    
+    double epsilon =0.0001;
+    
+    double C;
+    int counter = 0;
+    //Ветвление ЕСЛИ (УСЛОВИЕ верно) {Команды}
+    if ((A * A - 2) * (B * B - 2) >= 0){
+        cout << "No root" << '\n';
+        return 1; //Завершение программы с кодом 1
+    }
+    while ((B - A) >= epsilon){
+        counter++;//counter = counter + 1
+        C = (A + B) /2;//Середина
+        cout << counter << " : " << C << endl;
+        
+        double f_c = C * C - 2;
+        
+        if(fabs(f_c) < epsilon){
+            break;
+        }
+    }
+    if ((A * A - 2) * f_c < 0){
+        //Корень в левой части
+        B = C;
+    }
+    else{
+        A = C;
+    }
+    cout << "Result: " << C << endl;
+    return 0;
+}
+
+
+//Функция под вариантом 11
