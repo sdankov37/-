@@ -5,7 +5,7 @@ using namespace std;
 int main() {
     // [0,2]  f(x) = x**2 - 2
     double A = 0;//Начало интервала
-    double B = 2;//Конец интервала
+    double B = 4;//Конец интервала
     
     double epsilon =0.0001;
     
@@ -26,13 +26,13 @@ int main() {
         if(fabs(f_c) < epsilon){
             break;
         }
-    }
-    if ((A * A - 2) * f_c < 0){
-        //Корень в левой части
-        B = C;
-    }
-    else{
-        A = C;
+        if ((A * A - 2) * f_c < 0){
+            //Корень в левой части
+            B = C;
+        }
+        else{
+            A = C;
+        }
     }
     cout << "Result: " << C << endl;
     return 0;
