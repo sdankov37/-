@@ -1,0 +1,44 @@
+#include <iostream> // Библиотека ввода-вывода
+#include <cmath> // math - библиотека
+using namespace std;
+
+int main() {
+    // [2, 4]  f(x) = 3*x - 4 * log(x) - 5
+    double A = 2; //Начало интервала
+    double B = 4; //Конец интервала
+    
+    double epsilon =0.0001;
+    
+    double C;
+    int counter = 0;
+    //Ветвление ЕСЛИ (УСЛОВИЕ верно) {Команды}
+    if ((3 * A - 4 * log(A) - 5) * (3 * B - 4 * log(B) - 5 ) >= 0){
+        cout << "No root" << '\n';
+        return 1; //Завершение программы с кодом 1
+    }
+    while ((B - A) >= epsilon){
+        counter++; //counter = counter + 1
+        C = (A + B) / 2; //Середина
+        cout << counter << " : " << C << endl;
+        
+        double f_c = 3 * C - 4 * log(C) - 5;
+        
+        if(fabs(f_c) < epsilon){
+            break;
+        }
+        if ((3 * A - 4 * log(A) - 5) * f_c < 0){
+            //Корень в левой части
+            B = C;
+        }
+        else{
+            A = C;
+        }
+    }
+    cout << "Result: " << C << endl;
+    return 0;
+}
+
+
+//Функция под вариантом 11
+
+
