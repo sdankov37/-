@@ -1,1 +1,90 @@
+#include <iostream>
+//scamer ==> 1 day == 1000rub 
 
+using namespace std;
+int main(){
+    double x, y;
+    int count = 0;
+    cin >> x >> y;
+    
+    while (x <= y){
+        count ++;
+        x *= 1.1;
+    }
+    
+    cout << "В какой день ваше небо станет в клеточку: " << count;
+    
+    
+    
+    
+    
+    
+    return 0;
+}
+
+
+
+#include <iostream>
+//scamer ==> 1 day == 1000rub 
+
+using namespace std;
+int main(){
+    int a, b;
+    cin >> a >> b;
+    if (a < b){
+        cout << "Вы ошиблись(((((" << endl;
+        return 0;
+    }
+    while  (a > b){
+        if (a % 2 == 0){
+        a /= 2;
+        cout << "Раздели на 2 \n";
+        } 
+        else {
+            a--;
+            cout << "Отняли 1\т";
+        }
+        
+        
+    }
+    return 0;
+}
+
+
+#include <iostream>
+using namespace std;
+int main(){
+    int count = 0;
+    int n, a;
+    cin >> n;
+    int v[n];
+    
+    for (int i = 0; i < n; i ++){
+        cin >> v[n];
+    }
+    
+    for (int i = 0; i < n; i ++){
+        if (i == 0){
+            if (v[i] < v[i + 1]){
+                a ++;
+                
+            }
+            
+        }
+        else if (i == n - 1){
+            if (v[i] < v[i - 1]){
+                a ++;
+            }
+        }
+        else if (i == n - 1){
+            if (v[i] < v[i + 1]){
+                a ++;
+            
+            }
+        }
+    }
+    cout << v[n];
+    
+    
+    return 0;
+}
