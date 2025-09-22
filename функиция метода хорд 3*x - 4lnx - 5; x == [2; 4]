@@ -1,1 +1,30 @@
-
+#include <iostream> // Библиотека ввода-вывода
+#include <cmath> // math - библиотека
+using namespace std;
+// 3 * x - 4 * log(x) - 5   x == [2; 4]
+int main() {
+    double a, b, d, eps;
+    eps = 0.00001;
+    
+    a = 2;
+    b = 4;
+    
+    do {
+        //Формула метода хорд:
+        // x = (a * f(b) - b * f(a)) / (f(b) - f(a))
+        d = (((a * (3 * b - 4 * log(b) - 5)) - (b * (3 * a - 4 * log(a) - 5))) / ((3 * b - 4 * log(b) - 5) - (3 * a - 4 * log(a) - 5)));
+        double f_d = 3 * d - 4 * log(d) - 5;
+        if (fabs(f_d) < eps){
+            break; // предварительный выход из цикла
+        }
+        if (((3 * a - 4 * log(a) - 5) * f_d) < 0){
+        b = d;
+        }
+        else {
+            a = d;
+        }
+    }while ((b - a) >= eps);
+    
+    cout << "Result2: " << d << endl;
+    return 0;
+}
