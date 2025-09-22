@@ -1,1 +1,30 @@
+#include <iostream> // Библиотека ввода-вывода
+#include <cmath> // math - библиотека
+using namespace std;
 
+int main() {
+    double a, b, d, eps;
+    eps = 0.00001;
+    
+    a = 0;
+    b = 2;
+    
+    do {
+        //Формула метоа хорд:
+        // x = (a * f(b) - b * f(a)) / (f(b) - f(a))
+        d = (((a * (b * b - 2)) - (b * (a * a - 2))) / ((b * b - 2) - (a * a - 2)));
+        double f_d = d * d - 2;
+        if (fabs(f_d) < eps){
+            break; // предварительный выход из цикла
+        }
+        if (((a * a - 2) * f_d) < 0){
+        b = d;
+        }
+        else {
+            a = d;
+        }
+    }while ((b - a) >= eps);
+    
+    cout << "Result2: " << d << endl;
+    return 0;
+}
