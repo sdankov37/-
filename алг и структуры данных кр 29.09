@@ -1,0 +1,48 @@
+# arr[0] < arr[1] < ... < arr[i - 1] < arr[i]
+# arr[i] > arr[i + 1] > ... > arr[arr.length - 1]
+
+# arr = [1 ,2]
+arr = [1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1]
+
+n = len(arr)
+
+def peak(arr):
+    if n < 3:
+        return -1
+    
+    left, right = 0, n - 1
+    
+    while left <= right:
+        mid = left + (right - left) // 2
+        if mid > 0 and mid < n - 1:
+            if arr[mid] > arr[mid - 1] and arr[mid] > arr[mid + 1]:
+                return mid
+        if mid < n - 1 and arr[mid] < arr[mid + 1]:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1, 'Массив не горный', mid + 1
+    
+def mountain(arr):
+    pk = peak(arr)
+    
+    if pk == -1:
+        return "Массив не горный"
+    for i in range(pk):
+        if arr[i] >= arr[i + 1]:
+            return "Массив не горный"
+    for i in range(pk, n - 1):
+        if arr[i] <= arr[i + 1]:
+            return "Массив не горный"
+    
+    return "Массив горный"
+
+
+a = mountain(arr)
+
+if n < 3:
+    print('Массив слишком короткий')
+elif a == "Массив горный":
+    print(mountain(arr),"\n", peak(arr) + 1)
+else:
+    print(mountain(arr))
