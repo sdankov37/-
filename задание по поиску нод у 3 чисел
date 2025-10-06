@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+long long nod_mine(long long a, long long b, long long c) {
+    while (b != 0) {
+        long long t = b;
+        b = a % b;
+        a = t;
+    }
+    
+    while (c != 0) {
+        long long t = c;
+        c = a % c;
+        a = t;
+    }
+    
+    return a;
+}
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+    long long a, b, c;
+    cout << "Введите 3 числа для НОД!\n";
+    cin >> a;
+    cin >> b;
+    cin >> c;
+    cout << "НОД (" << a << "," << b << "," << c << ") = " << nod_mine(a, b, c) << ".\n";
+    return 0;
+}
