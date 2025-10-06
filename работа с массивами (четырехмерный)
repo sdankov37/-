@@ -1,0 +1,36 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main(){
+    srand(time(0));//привязали функцию rand не к сегодняшней дате, а к рандомной дате
+    int h = 4, k = 3, l = 6, j = 2;
+    
+    cout << "Введите значения: \n";
+    int a[h][k][l][j];
+    for(int d = 0; d < h; d ++){
+        for (int d1 = 0; d1 < k; d1 ++){
+            for (int d2 = 0; d2 < l; d2 ++){
+                for (int d3 = 0; d3 < j; d3 ++){
+                    a[d][d1][d2][d3] = rand() % 10;
+                }
+            }
+        }
+    }
+    
+    cout << "Числа массива: \n";
+    for(int d = 0; d < h; d ++){
+        for (int d1 = 0; d1 < k; d1 ++){
+            for (int d2 = 0; d2 < l; d2 ++){
+                for (int d3 = 0; d3 < j; d3 ++){
+                    cout << a[d][d1][d2][d3] << " ";
+                }
+                cout << "\t";
+            }
+            cout << endl;
+        }
+        cout << endl;
+    }
+    
+    return 0;
+}
