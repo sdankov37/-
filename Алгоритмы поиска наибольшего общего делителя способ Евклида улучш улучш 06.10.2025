@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+long long nod_mine(long long a, long long b){
+    while (b != 0){
+        long long result = a % b;
+        a = b;
+        b = result;
+    }
+    return a;
+}
+
+int main(){
+    setlocale(LC_ALL, "Russian");
+    long long a, b;
+    cout << "Введитте 2 числа для НОД!\n";
+    cin >> a;
+    cin >> b;
+    
+    //Получаем абсолюты
+    if (a < 0) a =- a;
+    if (b < 0) b =- b;
+    
+    if (a == 0 && b == 0){
+        cout << " НОД (0, 0), поэтому бесконенечое множество общих делителей!\n";
+        return 0;
+    }
+    
+    if (a == 0){
+        cout << "НОД (" << a << "," << b << ") =" << b << ".\n";
+        return 0;
+    }
+    if (b == 0){
+        cout << "НОД (" << b << "," << a << ") =" << a << ".\n";
+        return 0;
+    }
+    
+
+    cout << "НОД (" << a << "," << b << ") = " << nod_mine(a, b) << ".\n";
+    return 0;
+}
