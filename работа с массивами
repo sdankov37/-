@@ -1,0 +1,33 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main(){
+    srand(time(0));//привязали функцию rand не к сегодняшней дате, а к рандомной дате
+    int h = 10;
+    cout << "Введите значения: \n";
+    int a[h];
+    for(int d = 0; d < h; d ++){
+        a[d] = rand() % 10;
+    }
+    for(int d = 0; d < h; d ++){
+        cout << a[d] << " ";
+    }
+    int s = 0, f = 0;
+    for (int d = 0; d < h; d ++){
+        if (d % 2 == 0){
+            s += a[d];
+        }
+        else{
+            f += a[d];
+        }
+        
+    }
+    if (s > f){
+        cout << endl << "Больше четных";
+    }
+    else{
+        cout << endl << "Больше нечетных";
+    }
+    return 0;
+}
