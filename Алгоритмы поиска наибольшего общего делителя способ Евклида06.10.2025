@@ -1,1 +1,40 @@
+#include <iostream>
 
+using namespace std;
+
+int main(){
+    setlocale(LC_ALL, "Russian");
+    long long a, b;
+    cout << "Введитте 2 числа для НОД!\n";
+    cin >> a;
+    cin >> b;
+    
+    //Получаем абсолюты
+    if (a < 0) a =- a;
+    if (b < 0) b =- b;
+    
+    if (a == 0 && b == 0){
+        cout << " НОД (0, 0), поэтому бесконенечое множество общих делителей!\n";
+        return 0;
+    }
+    
+    if (a == 0){
+        cout << "НОД (" << a << "," << b << ") =" << b << ".\n";
+        return 0;
+    }
+    if (b == 0){
+        cout << "НОД (" << b << "," << a << ") =" << a << ".\n";
+        return 0;
+    }
+    
+    while (a != b){
+        if (a > b){
+            a = a - b;
+        }
+        else{
+            b = b - a;
+        }
+    }
+    cout << "НОД (" << a << "," << b << ") = " << result << ".\n";
+    return 0;
+}
