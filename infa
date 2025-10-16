@@ -1,0 +1,63 @@
+from math import*
+
+#1
+
+# def f(x, y):
+#     return log(fabs(sin(x + y)))
+# a = int(input())
+# b = int(input())
+# print(f(a, b))
+
+#++++++++++++++++++++++++++++++++++++++++++++++
+#2
+
+#atan(fabs(x - y) ** -3 ) * (x * exp ** y), sin(x + y) <= -0.5
+#3 * log(fabs(x * y), 3), -0.5 < sin(x + y) < 0.5
+#x ** 3 + y ** 1.5, sin(x + y) >= 0.5
+
+# x = float(input('Введите x ^'))
+# y = float(input('Введите y ^'))
+
+# if sin(x + y) <= -0:
+#     f = atan(fabs(x - y) ** -3 ) * (x * exp ** y)
+# elif  -0.5 < sin(x + y) < 0.5:
+#     f = 3 * log(fabs(x * y), 3)
+# elif sin(x + y) >= 0.5:
+#     f = x ** 3 + y ** 1.5
+    
+# print('f = ', f)
+
+#++++++++++++++++++++++++++++++++++++++++++++
+#3
+
+# xn = float(input('Введите xn^ '))
+# xk = float(input('Введите xk^ '))
+# hx = float(input('Введите hx^ '))
+
+# x = xn#устанавливаем x в начало отрезка в xn
+
+# while x <= xk:#пока не дойдем до конца отрезка xk
+#     f = cos(e * x) ** 3 + sin(fabs(x))
+#     print('x = ', x, ' f = ', f)
+#     x = x + hx #прибавляем к аргументу шаг
+
+#+++++++++++++++++++++++++++++++++++++++++++++
+#4
+
+#sin(x*exp ** (0.1 * y) ** -3), x + y <= 2
+#fabs(log(x + y, 2)), x + y > 2
+
+ax, bx, hx = 1, 2.5, 0.5
+ay, by, hy = 1, 4, 1
+
+x = ax 
+while x <= bx:
+    y = ay
+    while y <= by:
+        if x + y <= 2:
+            f = sin(x * exp(0.1 * y)) ** (1 / 3)
+        else:
+            f = fabs(log(x + y, 2))
+            print('x: = ', x, 'y = ', y, 'f = ', f)
+        y = y + hy 
+        x = x + hx 
