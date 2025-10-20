@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+    int i;
+    vector<int> vec;
+    // push_back(i)   pop_back()
+    for (i = 0; i < 3; i++){
+        // добавление элементов в массив
+        vec.push_back(i);
+        cout << vec.at(i) << " "; // vec[i] Такой же доступ к элементам
+    }
+    for (i = 0; i < 3; i++){
+        // добавление элементов в массив
+        vec.pop_back(i);
+        cout << vec.at(i) << " "; // vec[i] Такой же доступ к элементам
+    }
+    
+    return 0;
+}
