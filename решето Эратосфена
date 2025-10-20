@@ -1,0 +1,51 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+vector<int> sieveEratosthen(int limit)
+{
+    if (limit < 2)
+        return {};
+
+    // Отметить число составное или нет
+    // marked[x] == true - значит чиссло составное - НЕ ПРОСТОЕ
+    vector<bool> marked(limit + 1, false);
+
+    int upper = static_cast<int>(sqrt(limit)); // Каст - приведение одного типа к другому.
+    for (int p = 2; p <= upper; p++)
+    {
+        if (!marked[p])
+        {
+            // p * p       p * p + p      p * p + 2p ...
+            for (int multiple = p * p; multiple <= limit; multiple += p)
+            {
+                marked[multiple] = true;
+            }
+        }
+    }
+    vector<int> primes;
+    for (int i = 2; i <= limit; ++i)
+    {
+        if (!marked[i])
+            primes.push_back(i);
+    }
+    return primes;
+}
+int main()
+{
+    int limit;
+    // cin >> limit;
+    if (!(cin >> limit))
+    {
+        return 1;
+    }
+    vector<int> primes = sieveEratosthen(limit);
+
+    for (int elem : primes)
+    {
+        cout << elem << " ";
+    }
+    return 0;
+}
